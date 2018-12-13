@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.example.TP4Microservices.Tp4MicroservicesApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 52.302 s - in com.example.TP4Microservices.Tp4MicroservicesApplicationTests
