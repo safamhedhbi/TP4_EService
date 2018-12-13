@@ -4,9 +4,9 @@ How to: Dockeriser des microservices
 - [Environnement](#Environnement)
 - [Architecture Microservices](#microservices-to-deploy-on-docker)
 - [Dockeriser les Microservices](#dockeriser-microservices)
-- [Création des Dockerfiles](#Dockerfile)
-- [Création du docker-compose.yml](#Docker-compose)
-- [Résultat final](#final)
+	- [CrÃ©ation des Dockerfiles](#Dockerfile)
+	- [CrÃ©ation du docker-compose.yml](#Docker-compose)
+- [RÃ©sultat final](#final)
 
 <!-- /TOC -->
 
@@ -14,26 +14,26 @@ How to: Dockeriser des microservices
 On a besoin de :
 - Intellij
 - JDK 8 
-- Docker (Docker Toolbox si vous n'êtes pas windows10 PRO)
+- Docker (Docker Toolbox si vous n'Ãªtes pas windows10 PRO)
 
-(plus de détails ici --> https://insatunisia.github.io/TP-eServices/tp4/ )
+(plus de dÃ©tails ici --> https://insatunisia.github.io/TP-eServices/tp4/ )
 
 ## Architecture Microservices
 - Product Service : Service principal, qui offre une API REST pour lister une liste de produits.
-- Config Service : Service de configuration, dont le rôle est de centraliser les fichiers de configuration des différents microservices dans un endroit unique.
-- Proxy Service : Passerelle se chargeant du routage d'une requête vers l'une des instances d'un service, de manière à gérer automatiquement la distribution de charge.
-- Discovery Service: Service permettant l'enregistrement des instances de services en vue d'être découvertes par d'autres services.
-**L'architecture résultante aura l'allure suivante:**
+- Config Service : Service de configuration, dont le rÃ´le est de centraliser les fichiers de configuration des diffÃ©rents microservices dans un endroit unique.
+- Proxy Service : Passerelle se chargeant du routage d'une requÃªte vers l'une des instances d'un service, de maniÃ¨re Ã  gÃ©rer automatiquement la distribution de charge.
+- Discovery Service: Service permettant l'enregistrement des instances de services en vue d'Ãªtre dÃ©couvertes par d'autres services.
+**L'architecture rÃ©sultante aura l'allure suivante:**
 
 
 ![Architecture](images/archi.png)
 
 ## Dockeriser les Microservices
-Pour dockerize les microservices, nous devons générer une image Docker à partir de chaque application. 
-Ceci peut être réalisé par la création d'un fichier Dockerfile pour chaque microservice.
+Pour dockerize les microservices, nous devons gÃ©nÃ©rer une image Docker Ã  partir de chaque application. 
+Ceci peut Ãªtre rÃ©alisÃ© par la crÃ©ation d'un fichier Dockerfile pour chaque microservice puis un fichier Docker compose pour le projet entier.
 
-## Création des Dockerfiles
-On crée pour chaque projet son Dockerfile:
+### CrÃ©ation des Dockerfiles
+On crÃ©e pour chaque projet son Dockerfile:
 Exemple de **Proxy Service:**
 
 
@@ -54,15 +54,15 @@ CMD ["java","-jar","/usr/app/proxy-service.jar","--spring.profiles.active=docker
 ```
 
 
-Puis on exécute la commande  ``docker build -t proxy-service . ``
+Puis on exÃ©cute la commande  ``docker build -t proxy-service . ``
 
 
-On vérifie l'ajout des images avec ``docker images``
+On vÃ©rifie l'ajout des images avec ``docker images``
 
 
 ![Dockerimages](images/dockerimg.png)
 
-## Création du docker-compose.yml
+### CrÃ©ation du docker-compose.yml
 **Documentation ->** https://docs.docker.com/compose/
 
 
@@ -121,14 +121,14 @@ services:
 ```
     
 	
-A partir du dossier où se trouve **docker-compose.yml** on exécute ``docker-compose up`` 
+A partir du dossier oÃ¹ se trouve **docker-compose.yml** on exÃ©cute ``docker-compose up`` 
 
 
 ![docker compose](images/compose.png)
 
-## Résultat final
+## RÃ©sultat final
 
-Voilà ça marche!
+VoilÃ  Ã§a marche!
 
 
 ![time](images/resultat.png)
