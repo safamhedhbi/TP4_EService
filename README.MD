@@ -130,7 +130,9 @@ A partir du dossier où se trouve **docker-compose.yml** on exécute ``docker-co
 
 Voilà ça marche!
 
-Le premier service à démarrer est le config-service
+Le premier service à démarrer est le config-service:
+
+
 ![end](images/first.png)
 
 
