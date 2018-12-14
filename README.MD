@@ -81,7 +81,7 @@ services:
     depends_on:
       - config-service
     entrypoint: /wait-for-it.sh config-service:8888 -t 300 --
-    command: java -jar /usr/app/discovery-service-0.0.1-SNAPSHOT.jar --spring.profiles.active=docker
+    command: java -jar /usr/app/discovery-service.jar --spring.profiles.active=docker
   
   proxy-service:
     build: proxy-service
@@ -90,7 +90,7 @@ services:
     depends_on:
       - discovery-service
     entrypoint: /wait-for-it.sh discovery-service:8761 -t 300 --
-    command: java -jar /usr/app/proxy-service-0.0.1-SNAPSHOT.jar --spring.profiles.active=docker
+    command: java -jar /usr/app/proxy-service.jar --spring.profiles.active=docker
   
   product-service-8080:
     build: product-service
@@ -99,7 +99,7 @@ services:
     depends_on:
       - proxy-service
     entrypoint: /wait-for-it.sh proxy-service:9999 -t 300 --
-    command: java -jar /usr/app/TP4-Microservices-0.0.1-SNAPSHOT.jar --spring.profiles.active=docker
+    command: java -jar /usr/app/TP4-Microservices.jar --spring.profiles.active=docker
   
   product-service-8081:
     build: product-service
@@ -108,7 +108,7 @@ services:
     depends_on:
       - proxy-service
     entrypoint: /wait-for-it.sh proxy-service:9999 -t 300 --
-    command: java -jar /usr/app/TP4-Microservices-0.0.1-SNAPSHOT.jar --spring.profiles.active=docker
+    command: java -jar /usr/app/TP4-Microservices-.jar --spring.profiles.active=docker
   
   product-service-8082:
     build: product-service
@@ -117,7 +117,7 @@ services:
     depends_on:
       - proxy-service
     entrypoint: /wait-for-it.sh proxy-service:9999 -t 300 --
-    command: java -jar /usr/app/TP4-Microservices-0.0.1-SNAPSHOT.jar --spring.profiles.active=docker 
+    command: java -jar /usr/app/TP4-Microservices.jar --spring.profiles.active=docker 
 ```
     
 	
